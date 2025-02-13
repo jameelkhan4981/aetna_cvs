@@ -85,18 +85,18 @@ resource "aws_ecs_service" "my_service" {
   launch_type     = "EC2"
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.my_target_group.arn
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-2:241533131465:targetgroup/test-ecs/52d5f55a70ff0d5a"
     container_name   = "my-container"
     container_port   = 80
   }
 }
 
-resource "aws_lb_target_group" "my_target_group" {
-  name     = "my-target-group2"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = "vpc-0073cea8d4bfbd489"
-}
+#resource "aws_lb_target_group" "my_target_group" {
+#  name     = "test-ecs"
+#  port     = 80
+#  protocol = "HTTP"
+#  vpc_id   = "vpc-0ff80fc93116ef50d"
+#}
 
 #resource "aws_vpc" "main1" {
 #  cidr_block = "10.0.0.0/16"
