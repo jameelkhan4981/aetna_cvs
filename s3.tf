@@ -22,7 +22,7 @@ resource "aws_kms_key" "mykey" {
 resource "aws_s3_bucket" "mybucket" {
   bucket = "mybucket"
   provider = aws.us_east_1
-  acl    = "private"
+  
 lifecycle {
     ignore_changes = [server_side_encryption_configuration]
   }
