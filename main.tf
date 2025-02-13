@@ -94,7 +94,7 @@ resource "aws_lb_target_group" "my_target_group" {
   name     = "my-target-group1"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.main.id
+  #vpc_id   = aws_vpc.main.id
 }
 
 data "aws_vpc" "main" {
