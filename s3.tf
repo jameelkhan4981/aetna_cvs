@@ -19,8 +19,8 @@ resource "aws_kms_key" "mykey" {
   deletion_window_in_days = 10
 }
 
-resource "aws_s3_bucket" "mybucket-te" {
-  bucket = "mybucket-te"
+resource "aws_s3_bucket" "mybucket-t" {
+  bucket = "mybucket-t"
   provider = aws.us_east_2
 }
 provider "aws" {
@@ -29,8 +29,8 @@ provider "aws" {
   access_key = "AKIATQPD7DLEUNNPHLWT"
   secret_key = "UfCpwmnLQfzMYeMS2yPwZs+bejMjd2RSrKYUlR+z"
 }
-resource "aws_s3_bucket_server_side_encryption_configuration" "example2" {
-  bucket = aws_s3_bucket.mybucket-te.bucket
+resource "aws_s3_bucket_server_side_encryption_configuration" "example1" {
+  bucket = aws_s3_bucket.mybucket-t.bucket
 
   rule {
     apply_server_side_encryption_by_default {
@@ -40,8 +40,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example2" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "example2" {
-  bucket = aws_s3_bucket.mybucket-te.id
+resource "aws_s3_bucket_public_access_block" "example1" {
+  bucket = aws_s3_bucket.mybucket-t.id
 
 
   block_public_acls       = true
