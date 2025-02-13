@@ -1,0 +1,25 @@
+{
+  "family": "simple-node-app",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "simple-node-app",
+      "image": "your-dockerhub-username/simple-node-app:latest",
+      "memory": 512,
+      "cpu": 256,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512"
+}
