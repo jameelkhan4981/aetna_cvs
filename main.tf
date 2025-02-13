@@ -3,6 +3,7 @@ provider "aws" {
   version = "~> 5.0"
 }
 
+
 resource "aws_ecs_cluster" "my_cluster" {
   name = "my-cluster"
 }
