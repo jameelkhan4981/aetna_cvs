@@ -30,7 +30,7 @@ provider "aws" {
   secret_key = "UfCpwmnLQfzMYeMS2yPwZs+bejMjd2RSrKYUlR+z"
 }
 resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
-  bucket = aws_s3_bucket.mybucket1.bucket
+  bucket = aws_s3_bucket.mybucket5.bucket
 
   rule {
     apply_server_side_encryption_by_default {
