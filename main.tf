@@ -41,7 +41,7 @@ resource "aws_ecs_task_definition" "my_task" {
 }
 
 resource "aws_ecs_service" "my_service" {
-  name            = "my-service"
+  name            = "my-service1"
   cluster         = aws_ecs_cluster.my_cluster.id
   task_definition = aws_ecs_task_definition.my_task.arn
   desired_count   = 1
@@ -78,7 +78,7 @@ resource "aws_ecs_task_definition" "my_task" {
 }
 
 resource "aws_ecs_service" "my_service" {
-  name            = "my-service1"
+  name            = "my-service2"
   cluster         = aws_ecs_cluster.my_cluster.id
   task_definition = aws_ecs_task_definition.my_task.arn
   desired_count   = 1
@@ -86,7 +86,7 @@ resource "aws_ecs_service" "my_service" {
 
   load_balancer {
     target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:241533131465:targetgroup/test-ecs/b36fd944567f1d11"
-    container_name   = "my-container"
+    container_name   = "my-container2"
     container_port   = 80
   }
 }
