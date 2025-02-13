@@ -21,8 +21,6 @@ resource "aws_s3_bucket" "test_bucket6" {
 provider "aws" {
   alias  = "us_east_1"
   region = "us-east-1"
-  access_key = "AKIATQPD7DLEUNNPHLWT"
-  secret_key = "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"
 }
 
 resource "aws_s3_bucket_public_access_block" "test_public_access" {
