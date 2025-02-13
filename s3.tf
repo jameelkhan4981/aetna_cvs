@@ -13,24 +13,24 @@
 }*/
 
 
-/*
+
 resource "aws_kms_key" "mykey" {
   description             = "This key is used to encrypt bucket objects"
   deletion_window_in_days = 10
 }
 
-resource "aws_s3_bucket" "mybucket-t" {
-  bucket = "mybucket-t"
-  provider = aws.us_east_1
+resource "aws_s3_bucket" "mybucket-te" {
+  bucket = "mybucket-te"
+  provider = aws.us_east_2
 }
 provider "aws" {
-  alias  = "us_east_1"
-  region = "us-east-1"
+  alias  = "us_east_2"
+  region = "us-east-2"
   access_key = "AKIATQPD7DLEUNNPHLWT"
   secret_key = "UfCpwmnLQfzMYeMS2yPwZs+bejMjd2RSrKYUlR+z"
 }
-resource "aws_s3_bucket_server_side_encryption_configuration" "example1" {
-  bucket = aws_s3_bucket.mybucket-t.bucket
+resource "aws_s3_bucket_server_side_encryption_configuration" "example2" {
+  bucket = aws_s3_bucket.mybucket-te.bucket
 
   rule {
     apply_server_side_encryption_by_default {
@@ -40,8 +40,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example1" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "example1" {
-  bucket = aws_s3_bucket.mybucket-t.id
+resource "aws_s3_bucket_public_access_block" "example2" {
+  bucket = aws_s3_bucket.mybucket-te.id
 
 
   block_public_acls       = true
@@ -49,7 +49,7 @@ resource "aws_s3_bucket_public_access_block" "example1" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-*/
+
 /*resource "aws_s3_bucket_public_access_block" "public_access" {
   bucket = aws_s3_bucket.my_bucket.id
 
