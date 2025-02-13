@@ -9,15 +9,25 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+  access_key = "AKIATQPD7DLEUNNPHLWT"
+  secret_key = "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"
 }
 
-resource "aws_s3_bucket" "test_bucket" {
-  bucket = "test-bucket"
+resource "aws_s3_bucket" "test_bucket6" {
+  bucket = "test-bucket6"
   acl    = "private"
+  provider = aws.us_east_1
+}
+
+provider "aws" {
+  alias  = "us_east_1"
+  region = "us-east-1"
+  access_key = "AKIATQPD7DLEUNNPHLWT"
+  secret_key = "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"
 }
 
 resource "aws_s3_bucket_public_access_block" "test_public_access" {
-  bucket = aws_s3_bucket.test_bucket.id
+  bucket = aws_s3_bucket.test_bucket6.id
 
   block_public_acls   = true
   block_public_policy = true

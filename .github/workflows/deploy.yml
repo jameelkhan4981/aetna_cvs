@@ -3,7 +3,7 @@ name: Deploy to ECS
 on:
   push:
     branches:
-      - main
+      - test-branch
 
 jobs:
   deploy:
@@ -21,5 +21,5 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      - name: Terraform Apply
+      - name: Terraform apply
         run: terraform apply -auto-approve

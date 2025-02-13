@@ -12,17 +12,25 @@
   }
 }*/
 
+
+
 resource "aws_kms_key" "mykey" {
   description             = "This key is used to encrypt bucket objects"
   deletion_window_in_days = 10
 }
 
-resource "aws_s3_bucket" "mybucket" {
-  bucket = "mybucket"
+resource "aws_s3_bucket" "mybucket-tesst" {
+  bucket = "mybucket-tesst"
+  provider = aws.us_east_1
 }
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
-  bucket = aws_s3_bucket.mybucket.bucket
+provider "aws" {
+  alias  = "us_east_1"
+  region = "us-east-1"
+  access_key = "AKIATQPD7DLEUNNPHLWT"
+  secret_key = "UfCpwmnLQfzMYeMS2yPwZs+bejMjd2RSrKYUlR+z"
+}
+resource "aws_s3_bucket_server_side_encryption_configuration" "example1" {
+  bucket = aws_s3_bucket.mybucket-tesst.bucket
 
   rule {
     apply_server_side_encryption_by_default {
@@ -32,11 +40,14 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.mybucket.id
+resource "aws_s3_bucket_public_access_block" "example1" {
+  bucket = aws_s3_bucket.mybucket-tesst.id
 
-  block_public_acls   = true
-  block_public_policy = true
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 /*resource "aws_s3_bucket_public_access_block" "public_access" {
