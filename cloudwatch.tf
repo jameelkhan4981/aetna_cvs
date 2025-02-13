@@ -1,9 +1,9 @@
 resource "aws_cloudwatch_log_group" "my_log_group" {
-  name = "/ecs/my-app"
+  name = "/ecs/my-apps"
 }
 
 resource "aws_cloudwatch_log_metric_filter" "error_filter" {
-  name           = "error-filter2"
+  name           = "error-filter"
   log_group_name = aws_cloudwatch_log_group.my_log_group.name
   pattern        = "ERROR"
 
