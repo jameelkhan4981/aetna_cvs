@@ -41,7 +41,7 @@ resource "aws_ecs_task_definition" "my_task" {
 }
 
 resource "aws_ecs_service" "my_service" {
-  name            = "my-service1"
+  name            = "my-service"
   cluster         = aws_ecs_cluster.my_cluster.id
   task_definition = aws_ecs_task_definition.my_task.arn
   desired_count   = 1
@@ -78,7 +78,7 @@ resource "aws_ecs_task_definition" "my_task" {
 }
 
 resource "aws_ecs_service" "my_service" {
-  name            = "my-service"
+  name            = "my-service1"
   cluster         = aws_ecs_cluster.my_cluster.id
   task_definition = aws_ecs_task_definition.my_task.arn
   desired_count   = 1

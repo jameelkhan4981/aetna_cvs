@@ -19,8 +19,8 @@ resource "aws_kms_key" "mykey" {
   deletion_window_in_days = 10
 }
 
-resource "aws_s3_bucket" "mybucket1" {
-  bucket = "mybucket-test1"
+resource "aws_s3_bucket" "mybucket5" {
+  bucket = "mybucket-test5"
   provider = aws.us_east_1
 }
 provider "aws" {
@@ -41,7 +41,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.mybucket1.id
+  bucket = aws_s3_bucket.mybucket5.id
 
 
   block_public_acls       = true
