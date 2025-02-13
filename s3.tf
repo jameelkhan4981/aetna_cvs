@@ -20,7 +20,7 @@ resource "aws_kms_key" "mykey" {
 }
 
 resource "aws_s3_bucket" "mybucket" {
-  bucket = "mybucket4"
+  bucket = "mybucket5"
   provider = aws.us_east_2
 }
 provider "aws" {
