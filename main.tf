@@ -92,7 +92,7 @@ resource "aws_ecs_service" "my_service" {
 }
 
 resource "aws_lb_target_group" "my_target_group" {
-  name     = "test-ecs"
+  name     = "test-ecs1"
   port     = 80
   protocol = "HTTP"
   vpc_id   = "vpc-0ff80fc93116ef50d"
