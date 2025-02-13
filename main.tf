@@ -91,7 +91,7 @@ resource "aws_ecs_service" "my_service" {
 }
 
 resource "aws_lb_target_group" "my_target_group" {
-  name     = "my-target-group"
+  name     = "my-target-group1"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.main.id

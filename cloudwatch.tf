@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_log_group" "my_log_group" {
-  name = "/ecs/my-app1"
+  name = "/ecs/my-app2"
 }
 
 resource "aws_cloudwatch_log_metric_filter" "error_filter" {
