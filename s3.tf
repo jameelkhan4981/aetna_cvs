@@ -41,7 +41,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example1" {
 }
 
 resource "aws_s3_bucket_public_access_block" "example1" {
-  bucket = aws_s3_bucket.mybuckets.id
+  bucket = aws_s3_bucket.mybucket-t.id
 
 
   block_public_acls       = true
