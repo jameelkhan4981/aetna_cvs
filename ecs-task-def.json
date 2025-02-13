@@ -4,7 +4,7 @@
   "containerDefinitions": [
     {
       "name": "simple-node-app",
-      "image": "your-dockerhub-username/simple-node-app:latest",
+      "image": "dockernano/node.js:latest",
       "memory": 512,
       "cpu": 256,
       "essential": true,
