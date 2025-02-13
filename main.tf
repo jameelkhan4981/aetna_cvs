@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-2"
 }
 
 resource "aws_ecs_cluster" "my_cluster" {
@@ -15,8 +15,8 @@ resource "aws_ecs_task_definition" "my_task" {
 
   container_definitions = jsonencode([
     {
-      name  = "my-app"
-      image = "my-docker-image:latest"
+      name  = "node-app"
+      image = "dockernano/node.js:latest"
       essential = true
 
       portMappings = [
