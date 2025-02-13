@@ -20,12 +20,12 @@ resource "aws_kms_key" "mykey" {
 }
 
 resource "aws_s3_bucket" "mybucket" {
-  bucket = "mybucket-test"
-  provider = aws.us_east_2
+  bucket = "mybucket-test1"
+  provider = aws.us_east_1
 }
 provider "aws" {
-  alias  = "us_east_2"
-  region = "us-east-2"
+  alias  = "us_east_1"
+  region = "us-east-1"
   access_key = "AKIATQPD7DLEUNNPHLWT"
   secret_key = "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"
 }
