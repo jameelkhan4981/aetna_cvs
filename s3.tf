@@ -19,6 +19,9 @@ resource "aws_kms_key" "mykey" {
 
 resource "aws_s3_bucket" "mybucket" {
   bucket = "mybucket"
+lifecycle {
+    ignore_changes = [server_side_encryption_configuration]
+  }
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
@@ -35,8 +38,11 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 resource "aws_s3_bucket_public_access_block" "example" {
   bucket = aws_s3_bucket.mybucket.id
 
-  block_public_acls   = true
-  block_public_policy = true
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 /*resource "aws_s3_bucket_public_access_block" "public_access" {
