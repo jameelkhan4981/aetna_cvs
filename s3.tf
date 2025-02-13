@@ -21,11 +21,11 @@ resource "aws_kms_key" "mykey" {
 
 resource "aws_s3_bucket" "mybuckets" {
   bucket = "mybucket-tests"
-  provider = aws.us_east_1
+  provider = aws.us_east_2
 }
 provider "aws" {
-  alias  = "us_east_1"
-  region = "us-east-1"
+  alias  = "us_east_2"
+  region = "us-east-2"
   access_key = "AKIATQPD7DLEUNNPHLWT"
   secret_key = "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"
 }
