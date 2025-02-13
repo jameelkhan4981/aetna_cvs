@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "test_bucket" {
-  bucket = "test-bucket1"
+  bucket = "test-buckets"
   acl    = "private"
   provider = aws.us_east_1
 }
