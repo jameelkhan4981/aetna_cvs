@@ -30,6 +30,8 @@ lifecycle {
 provider "aws" {
   alias  = "us_east_1"
   region = "us-east-1"
+  access_key = "AKIATQPD7DLEUNNPHLWT"
+  secret_key = "UfCpwmnLQfzMYeMS2yPwZs+bejMjd2RSrKYUlR+z"
 }
 resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
   bucket = aws_s3_bucket.mybucket.bucket
