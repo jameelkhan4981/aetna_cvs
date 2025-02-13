@@ -12,7 +12,7 @@ terraform {
     }
   }
 }
-/*
+
 resource "aws_ecs_cluster" "my_cluster" {
   name = "my-cluster"
 }
@@ -51,8 +51,9 @@ resource "aws_ecs_service" "my_service" {
     security_groups = ["sg-01336129f0e1a2364"]
     assign_public_ip = false
   }
-}*/
+}
 
+*/
 resource "aws_ecs_cluster" "my_cluster" {
   name = "my-cluster"
 }
@@ -96,7 +97,7 @@ resource "aws_lb_target_group" "my_target_group" {
   protocol = "HTTP"
   #vpc_id   = aws_vpc.main.id
 }
-
+/*
 #data "aws_vpc" "main" {
 #  cidr_block = "10.0.0.0/16"
 #}
