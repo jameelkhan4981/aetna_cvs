@@ -62,7 +62,7 @@ resource "aws_ecs_task_definition" "my_task" {
   family                   = "my-task"
   container_definitions    = jsonencode([
     {
-      name      = "my-container1",
+      name      = "my-container",
       image     = "nginx",
       cpu       = 256,
       memory    = 512,
