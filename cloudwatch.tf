@@ -18,11 +18,11 @@ resource "aws_cloudwatch_metric_alarm" "error_alarm" {
   alarm_name          = "error-alarm"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
-  metric_name         = aws_cloudwatch_metric_filter.error_filter.metric_transformation[0].name
-  namespace           = aws_cloudwatch_metric_filter.error_filter.metric_transformation[0].namespace
+  metric_name         = aws_cloudwatch_log_metric_filter.error_filter.metric_transformation[0].name
+  namespace           = aws_cloudwatch_log_metric_filter.error_filter.metric_transformation[0].namespace
   period              = "60"
   statistic           = "Sum"
   threshold           = "10"
 
-  alarm_actions = ["arn:aws:sns:us-west-2:123456789012:my-sns-topic"]
+  alarm_actions = ["arn:aws:sns:us-east-1:241533131465:my-sns-topic"]
 }
