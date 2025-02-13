@@ -13,7 +13,7 @@
 }*/
 
 
-
+/*
 resource "aws_kms_key" "mykey" {
   description             = "This key is used to encrypt bucket objects"
   deletion_window_in_days = 10
@@ -49,7 +49,7 @@ resource "aws_s3_bucket_public_access_block" "example1" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
+*/
 /*resource "aws_s3_bucket_public_access_block" "public_access" {
   bucket = aws_s3_bucket.my_bucket.id
 
