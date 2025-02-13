@@ -3,7 +3,7 @@ resource "aws_cloudwatch_log_group" "my_log_group" {
 }
 
 resource "aws_cloudwatch_log_metric_filter" "error_filter" {
-  name           = "error-filter1"
+  name           = "error-filter2"
   log_group_name = aws_cloudwatch_log_group.my_log_group.name
   pattern        = "ERROR"
 
