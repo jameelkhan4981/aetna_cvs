@@ -1,8 +1,7 @@
 provider "aws" {
   region = "us-east-1"
- assume_role {
-    role_arn = "arn:aws:iam::241533131465:role/jameel-cvs"
-  }
+  access_key = "AKIATQPD7DLEUNNPHLWT"
+  secret_key = "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"
 }
 
 terraform {
