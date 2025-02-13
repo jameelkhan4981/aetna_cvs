@@ -12,7 +12,7 @@ terraform {
     }
   }
 }
-
+/*
 resource "aws_ecs_cluster" "my_cluster" {
   name = "my-cluster"
 }
@@ -51,4 +51,46 @@ resource "aws_ecs_service" "my_service" {
     security_groups = ["sg-01336129f0e1a2364"]
     assign_public_ip = false
   }
+}*/
+
+resource "aws_ecs_cluster" "my_cluster" {
+  name = "my-cluster"
+}
+
+resource "aws_ecs_task_definition" "my_task" {
+  family                   = "my-task"
+  container_definitions    = jsonencode([
+    {
+      name      = "my-container",
+      image     = "nginx",
+      cpu       = 256,
+      memory    = 512,
+      essential = true,
+    }
+  ])
+}
+
+resource "aws_ecs_service" "my_service" {
+  name            = "my-service"
+  cluster         = aws_ecs_cluster.my_cluster.id
+  task_definition = aws_ecs_task_definition.my_task.arn
+  desired_count   = 1
+  launch_type     = "EC2"
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.my_target_group.arn
+    container_name   = "my-container"
+    container_port   = 80
+  }
+}
+
+resource "aws_lb_target_group" "my_target_group" {
+  name     = "my-target-group"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.main.id
+}
+
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
 }
