@@ -53,7 +53,7 @@ resource "aws_ecs_service" "my_service" {
   }
 }*/
 
-
+/*
 resource "aws_ecs_cluster" "my_cluster" {
   name = "my-cluster1"
 }
@@ -85,19 +85,21 @@ resource "aws_ecs_service" "my_service" {
   launch_type     = "EC2"
 
   load_balancer {
-    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:241533131465:targetgroup/test-ecs/b36fd944567f1d11"
+    target_group_arn = aws_lb_target_group.my_target_group.arn
     container_name   = "my-container"
     container_port   = 80
   }
 }
 
-#resource "aws_lb_target_group" "my_target_group" {
-#  name     = "test-ecs"
-#  port     = 80
-#  protocol = "HTTP"
-#  vpc_id   = "vpc-0ff80fc93116ef50d"
-#}
+resource "aws_lb_target_group" "my_target_group" {
+  name     = "test-ecs"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = "vpc-0ff80fc93116ef50d"
+}*/
 
 #resource "aws_vpc" "main1" {
 #  cidr_block = "10.0.0.0/16"
 #}
+
+
