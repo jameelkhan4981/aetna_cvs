@@ -53,7 +53,7 @@ resource "aws_ecs_service" "my_service" {
   }
 }
 
-*/
+/*
 resource "aws_ecs_cluster" "my_cluster" {
   name = "my-cluster"
 }
@@ -97,7 +97,7 @@ resource "aws_lb_target_group" "my_target_group" {
   protocol = "HTTP"
   #vpc_id   = aws_vpc.main.id
 }
-/*
+*/
 #data "aws_vpc" "main" {
 #  cidr_block = "10.0.0.0/16"
 #}
