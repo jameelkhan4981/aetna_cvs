@@ -1,9 +1,9 @@
 resource "aws_cloudwatch_log_group" "my_log_group" {
-  name = "/ecs/my-app-test7"
+  name = "/ecs/my-app-test8"
 }
 
 resource "aws_cloudwatch_log_metric_filter" "error_filter" {
-  name           = "error-filter4"
+  name           = "error-filter5"
   log_group_name = aws_cloudwatch_log_group.my_log_group.name
   pattern        = "ERROR"
 
@@ -15,7 +15,7 @@ resource "aws_cloudwatch_log_metric_filter" "error_filter" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "error_alarm" {
-  alarm_name          = "error-alarm4"
+  alarm_name          = "error-alarm5"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = aws_cloudwatch_log_metric_filter.error_filter.metric_transformation[0].name
