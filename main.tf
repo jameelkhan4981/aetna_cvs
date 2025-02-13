@@ -1,5 +1,6 @@
 provider "aws" {
   region = "us-east-1"
+  profile = "default"
 }
 
 resource "aws_ecs_cluster" "my_cluster" {
